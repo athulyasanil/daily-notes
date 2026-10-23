@@ -1,0 +1,421 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Malayalam:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    background: #160a10;
+}
+
+body {
+    min-height: 100vh;
+    position: relative;
+    color: #fff1ed;
+    font-family: 'Noto Serif Malayalam', serif;
+    overflow-x: hidden;
+    background: transparent;
+}
+
+/* FULL PHOTO BACKGROUND */
+.background-photo {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    opacity: 1;
+    filter: saturate(0.85);
+    transform: none;
+}
+
+/* DARK TRANSPARENT EFFECT OVER PHOTO */
+.background-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    background: rgba(15, 5, 11, 0.48);
+}
+
+/* PETALS */
+.petal-container {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* MAIN CONTENT */
+.site-wrapper {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    min-height: 100vh;
+    padding: 35px 20px 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* REMOVE WHITE CARD COMPLETELY */
+.letter-card {
+    position: relative;
+    width: min(100%, 850px);
+    margin: 0 auto;
+    padding: 30px 25px;
+
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    overflow: visible;
+    text-align: center;
+}
+
+.letter-card::before,
+.letter-card::after {
+    display: none !important;
+}
+
+/* SMALL TOP LABEL */
+.top-label {
+    margin-bottom: 22px;
+    color: #f8d4cf;
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 8px #000;
+}
+
+/* HEADING */
+.page-heading {
+    margin-bottom: 12px;
+    color: #ffe0dc;
+    font-family: 'Noto Serif Malayalam', serif;
+    font-size: clamp(24px, 4vw, 34px);
+    font-weight: 600;
+    line-height: 1.8;
+
+    text-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.95),
+        0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+/* HEADING DECORATION */
+.heading-underline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 15px auto 28px;
+}
+
+.heading-underline::before,
+.heading-underline::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 1px;
+    background: rgba(255, 207, 198, 0.85);
+}
+
+.heading-symbol {
+    color: #ffc0c8;
+    font-size: 18px;
+}
+
+/* LETTER TEXT */
+.letter-paragraph {
+    max-width: 720px;
+    margin: 0 auto 22px;
+
+    color: #fff5ef;
+    font-family: 'Noto Serif Malayalam', serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2.15;
+    text-align: center;
+    overflow-wrap: anywhere;
+
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 1),
+        0 0 8px rgba(0, 0, 0, 0.95);
+}
+
+/* SIGNATURE AREA */
+.signature-area {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.signature-small {
+    margin-bottom: 8px;
+    color: #f9dcd6;
+    font-size: 14px;
+    text-shadow: 0 2px 8px #000;
+}
+
+.signature-name {
+    color: #ffd0d8;
+    font-family: 'Noto Serif Malayalam', serif;
+    font-size: 24px;
+    font-weight: 600;
+    text-shadow: 0 2px 10px #000;
+}
+
+.signature-ornament {
+    margin-top: 10px;
+    color: #ffbac5;
+    font-size: 19px;
+}
+
+/* BOTTOM DECORATION */
+.bottom-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 28px auto 12px;
+    color: #ffc0c8;
+}
+
+.bottom-ornament::before,
+.bottom-ornament::after {
+    content: "";
+    width: 45px;
+    height: 1px;
+    background: rgba(255, 207, 198, 0.8);
+}
+
+.underline-heart {
+    color: #ffbdc8;
+}
+
+/* PAGE NAVIGATION */
+.page-navigation {
+    position: relative;
+    z-index: 4;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    width: 100%;
+    margin-top: 15px;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 11px 23px;
+
+    color: #fff0eb;
+    background: rgba(24, 7, 15, 0.65);
+    border: 1px solid rgba(255, 220, 215, 0.75);
+    border-radius: 30px;
+
+    font-family: 'Noto Serif Malayalam', serif;
+    font-size: 14px;
+    text-decoration: none;
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.nav-button:hover {
+    color: #421522;
+    background: rgba(255, 237, 228, 0.95);
+    transform: translateY(-2px);
+}
+
+/* PAGE NUMBER */
+.page-counter {
+    margin-top: 18px;
+    color: #ffe4dd;
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px #000;
+}
+
+/* FOOTER */
+.site-footer {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    padding: 20px 12px;
+    color: #f8d9d2;
+
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.8;
+    text-shadow: 0 2px 8px #000;
+}
+
+/* DECORATIVE CORNERS */
+.corner-decoration {
+    position: absolute;
+    color: #ffc2c8;
+    font-size: 22px;
+    opacity: 0.85;
+    text-shadow: 0 2px 8px #000;
+}
+
+.corner-top-left {
+    top: 0;
+    left: 0;
+}
+
+.corner-top-right {
+    top: 0;
+    right: 0;
+}
+
+.corner-bottom-left {
+    bottom: 0;
+    left: 0;
+}
+
+.corner-bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+/* FALLING PETALS */
+.petal {
+    position: absolute;
+    top: -30px;
+
+    width: 10px;
+    height: 14px;
+    border-radius: 80% 0 80% 0;
+
+    background: rgba(255, 188, 201, 0.8);
+    box-shadow: 0 0 6px rgba(255, 190, 205, 0.3);
+
+    animation: falling linear infinite;
+}
+
+@keyframes falling {
+    0% {
+        transform: translate3d(0, -5vh, 0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translate3d(80px, 110vh, 0) rotate(500deg);
+        opacity: 0;
+    }
+}
+
+/* HEART CLICK EFFECT */
+.heart-pop {
+    position: fixed;
+    z-index: 10;
+    pointer-events: none;
+    color: #ffb5c2;
+    font-size: 22px;
+    text-shadow: 0 0 10px rgba(255, 150, 180, 0.6);
+    animation: heartRise 1.2s ease-out forwards;
+}
+
+@keyframes heartRise {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(0.7);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(1.5);
+    }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+    .site-wrapper {
+        padding: 22px 12px;
+        justify-content: flex-start;
+    }
+
+    .letter-card {
+        padding: 24px 8px;
+    }
+
+    .top-label {
+        font-size: 10px;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+    }
+
+    .page-heading {
+        font-size: 23px;
+        line-height: 1.8;
+    }
+
+    .heading-underline {
+        margin: 12px auto 22px;
+    }
+
+    .letter-paragraph {
+        font-size: 14px;
+        line-height: 2.05;
+        margin-bottom: 18px;
+    }
+
+    .signature-name {
+        font-size: 21px;
+    }
+
+    .nav-button {
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+
+    .page-navigation {
+        gap: 10px;
+    }
+
+    .site-footer {
+        font-size: 11px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

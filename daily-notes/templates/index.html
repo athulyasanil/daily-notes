@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ page.title }} | A Letter from My Heart</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Malayalam:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Background photo -->
+    <div class="background-photo"
+         style="background-image: url('{{ url_for('static', filename='images/' + page.image) }}');">
+    </div>
+
+    <!-- Dark overlay -->
+    <div class="background-overlay"></div>
+
+    <!-- Floating petals -->
+    <div class="petal-container" id="petal-container"></div>
+
+    <main class="site-wrapper">
+
+        <section class="letter-card">
+
+            <span class="corner-decoration corner-top-left">♡</span>
+            <span class="corner-decoration corner-top-right">♡</span>
+            <span class="corner-decoration corner-bottom-left">✧</span>
+            <span class="corner-decoration corner-bottom-right">✧</span>
+
+            <p class="top-label">A little piece of my heart</p>
+
+            <h1 class="page-heading">{{ page.title }}</h1>
+
+            <div class="heading-underline">
+                <span class="heading-symbol">♡</span>
+            </div>
+
+            <!-- Letter content -->
+            <div class="letter-content">
+                {% for paragraph in page.paragraphs %}
+                    <p class="letter-paragraph">{{ paragraph }}</p>
+                {% endfor %}
+            </div>
+
+            <!-- Signature -->
+            <div class="signature-area">
+                <p class="signature-small">With all my love,</p>
+                <p class="signature-name">Chinju ♡</p>
+                <div class="signature-ornament">∞</div>
+            </div>
+
+            <div class="bottom-ornament">
+                <span class="underline-heart">♥</span>
+            </div>
+
+        </section>
+
+        <!-- Previous and Next buttons -->
+        <nav class="page-navigation">
+
+            {% if not first %}
+                <a class="nav-button"
+                   href="{{ url_for('show_page', page_no=page_no - 1) }}">
+                    ♡ Previous
+                </a>
+            {% endif %}
+
+            {% if not last %}
+                <a class="nav-button"
+                   href="{{ url_for('show_page', page_no=page_no + 1) }}">
+                    Next ♡
+                </a>
+            {% else %}
+                <a class="nav-button"
+                   href="{{ url_for('home') }}">
+                    ↻ Read Again
+                </a>
+            {% endif %}
+
+        </nav>
+
+        <!-- Page counter -->
+        <p class="page-counter">
+            PAGE {{ page_no }} OF {{ total }}
+        </p>
+
+    </main>
+
+    <footer class="site-footer">
+        Written with love, from my heart to yours ♡
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
